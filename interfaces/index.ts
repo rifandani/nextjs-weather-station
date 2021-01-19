@@ -4,7 +4,13 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-  id: number
-  name: string
+export interface Sensor {
+  temp: string;
+  alt: string;
+  press: string;
+  heat: string;
+  humid: string;
+  lux: string;
+  flame: string;
+  createdAt: Date;
 }

@@ -9,12 +9,12 @@ generator client {
 
 model Sensors {
   id        Int     @id @default(autoincrement())
-  temp      String
-  alt       String
-  press     String      
-  heat      String
-  humid     String
-  lux       String
-  flame     String
+  temp      Float
+  alt       Float
+  press     Float
+  heat      Float
+  humid     Float
+  lux       Float
+  flame     Int
   createdAt DateTime @updatedAt
 }

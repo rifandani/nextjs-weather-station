@@ -5,11 +5,21 @@ import {
   FaMoneyBillWave,
 } from 'react-icons/fa';
 import { useRouter } from 'next/router';
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import React from 'react';
+import useSWR from 'swr';
 // files
-import TableUsers from './TableUsers';
 
 export default function AdminDashboard() {
   const { push } = useRouter();
+  const { data, error } = useSWR('/sensors', { refreshInterval: 10000 });
 
   return (
     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
@@ -83,7 +93,7 @@ export default function AdminDashboard() {
 
         {/* users title */}
         <div className="flex items-center justify-between">
-          <h3 className="text-3xl font-medium text-gray-700">Users</h3>
+          <h3 className="text-3xl font-medium text-gray-700">Charts</h3>
           <button
             onClick={() => push('/admin/add/user', '/admin/add/user')}
             className="px-4 py-2 text-white bg-green-500 border rounded-md hover:bg-green-600"
@@ -92,8 +102,210 @@ export default function AdminDashboard() {
           </button>
         </div>
 
-        {/* table using gridjs */}
-        <TableUsers />
+        {/* temperature */}
+        <div className="w-full mt-4">
+          <section className="relative flex flex-col pt-2 pb-4 bg-white border-b-4 border-yellow-500 rounded-md">
+            <p className="w-full py-2 font-bold text-center text-yellow-500">
+              BMP280 Temperature (&#8451;)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="temp"
+                  stroke="#e76f51"
+                  fill="#f4a261"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* altitude */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-green-500">
+              BMP280 Altitude (meter)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="alt"
+                  stroke="#2a9d8f"
+                  fill="#82ca9d"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* pressure */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-blue-500">
+              BMP280 Pressure (hPa)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="press"
+                  stroke="#264653"
+                  fill="#457b9d"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* pressure */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-yellow-700">
+              DHT11 Heat Index (&#8451;)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="heat"
+                  stroke="#9d0208"
+                  fill="#dc2f02"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* humidity */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-yellow-300">
+              DHT11 Kelembaban (%)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="humid"
+                  stroke="#f4a261"
+                  fill="#e9c46a"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* illumination */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-green-300">
+              BH1750 Illumination (lumen/m<sup>2</sup>)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="lux"
+                  stroke="#81b29a"
+                  fill="#caffbf"
+                />
+              </AreaChart>
+            )}
+          </section>
+
+          {/* infrared */}
+          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+            <p className="w-full py-2 font-bold text-center text-gray-500">
+              Infared (0/1)
+            </p>
+
+            {error && 'Error fetching data'}
+            {data && (
+              <AreaChart
+                width={1200}
+                height={300}
+                data={data?.sensors}
+                syncId="anyId"
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="createdAt" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="flame"
+                  stroke="#000000"
+                  fill="#e5e5e5"
+                />
+              </AreaChart>
+            )}
+          </section>
+        </div>
       </div>
     </main>
   );

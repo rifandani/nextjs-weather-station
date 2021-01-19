@@ -1,10 +1,7 @@
 import { Grid } from 'gridjs-react';
-// import { useRouter } from 'next/router';
 // files
 
-export default function TableUsers() {
-  // const { push } = useRouter();
-
+export default function TableSensors() {
   return (
     <div className="flex flex-col mt-8">
       <div className="-my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { FaReact, FaHome, FaSearch, FaBars, FaUserPlus } from 'react-icons/fa';
+import { FaReact, FaHome, FaSearch, FaBars, FaTable } from 'react-icons/fa';
 // files
 
 export default function Navbar({ children }: any) {
@@ -14,8 +14,6 @@ export default function Navbar({ children }: any) {
     <article className="w-full h-screen overflow-hidden bg-gray-200">
       <div>
         <div className="flex h-screen bg-gray-200">
-          {/*  div dgn onCLick, biar bisa keluar dari toggle sidebar */}
-          {/* @click="sidebarOpen = false" */}
           <div
             className={`fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden ${
               toggleSidebar ? 'block' : 'hidden'
@@ -34,8 +32,9 @@ export default function Navbar({ children }: any) {
               <div className="flex items-center">
                 <FaReact className="w-12 h-12 text-blue-500" />
 
-                <span className="mx-2 text-2xl font-semibold text-white">
-                  Weather Station
+                <span className="flex flex-col items-center mx-2">
+                  <p className="text-2xl font-semibold text-white">Weather</p>
+                  <p className="text-2xl font-semibold text-white">Station</p>
                 </span>
               </div>
             </div>
@@ -63,7 +62,7 @@ export default function Navbar({ children }: any) {
                       : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100'
                   }`}
                 >
-                  <FaUserPlus className="w-6 h-6" />
+                  <FaTable className="w-6 h-6" />
 
                   <span className="mx-3">Table</span>
                 </a>
@@ -126,7 +125,7 @@ export default function Navbar({ children }: any) {
                     }`}
                   >
                     <Link href="/profile">
-                      <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-500 hover:text-white">
+                      <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-500 hover:text-white">
                         Profile
                       </a>
                     </Link>
