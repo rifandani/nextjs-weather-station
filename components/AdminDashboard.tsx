@@ -1,4 +1,3 @@
-import { FaUserFriends, FaShoppingCart, FaShoppingBag } from 'react-icons/fa';
 import {
   Area,
   AreaChart,

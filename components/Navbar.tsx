@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { FaHome, FaSearch, FaBars, FaTable } from 'react-icons/fa';
+import { FaHome, FaBars, FaTable } from 'react-icons/fa';
 import { TiWeatherPartlySunny } from 'react-icons/ti';
 // files
 
