@@ -12,7 +12,7 @@ import '../styles/index.css';
 axios.defaults.baseURL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/api'
-    : 'https://weather-station.vercel.app/api';
+    : 'https://esp8266-weather-station.vercel.app/api';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
