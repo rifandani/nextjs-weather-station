@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     try {
       await prisma.$connect();
-      const sensors = await prisma.sensors.findMany();
+      const sensors = await prisma.sensor.findMany();
 
       // GET success +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       res.status(200).json({ error: false, sensors });
@@ -46,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       // save to database
       await prisma.$connect();
-      const newSensor = await prisma.sensors.create({
+      const newSensor = await prisma.sensor.create({
         data: {
           temp: parseFloat(Number(temp).toPrecision(4)),
           alt: parseFloat(Number(alt).toPrecision(6)),
@@ -55,7 +55,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           humid: parseFloat(Number(humid).toPrecision(4)),
           lux: parseFloat(Number(lux).toPrecision(4)),
           flame: Number(flame),
-          // createdAt: new Date().toLocaleString(),
+          time: new Date().toLocaleString(),
         },
       });
 
@@ -82,7 +82,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       // save to database
       await prisma.$connect();
       for (let i = 0; i < Number(loopNum); i++) {
-        await prisma.sensors.create({
+        await prisma.sensor.create({
           data: {
             temp: parseFloat(getRandomNumber(15, 30).toPrecision(4)),
             alt: parseFloat(getRandomNumber(2000, 2500).toPrecision(6)),
@@ -91,7 +91,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             humid: parseFloat(getRandomNumber(60, 90).toPrecision(4)),
             lux: parseFloat(getRandomNumber(10, 90).toPrecision(4)),
             flame: Math.round(Math.random()),
-            // const createdAt = new Date().toLocaleString();
+            time: new Date().toLocaleString(),
           },
         });
 
@@ -115,7 +115,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       // delete all values in table
       await prisma.$connect();
-      const { count } = await prisma.sensors.deleteMany();
+      const { count } = await prisma.sensor.deleteMany();
 
       // DELETE success +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       res.status(200).json({

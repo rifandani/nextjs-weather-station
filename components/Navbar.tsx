@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { FaReact, FaHome, FaSearch, FaBars, FaTable } from 'react-icons/fa';
+import { FaHome, FaSearch, FaBars, FaTable } from 'react-icons/fa';
+import { TiWeatherPartlySunny } from 'react-icons/ti';
 // files
 
 export default function Navbar({ children }: any) {
@@ -30,7 +31,7 @@ export default function Navbar({ children }: any) {
           >
             <div className="flex flex-row items-center justify-center mt-8">
               <div className="flex items-center">
-                <FaReact className="w-12 h-12 text-blue-500" />
+                <TiWeatherPartlySunny className="w-12 h-12 text-yellow-300" />
 
                 <span className="flex flex-col items-center mx-2">
                   <p className="text-2xl font-semibold text-white">Weather</p>
@@ -44,8 +45,8 @@ export default function Navbar({ children }: any) {
                 <a
                   className={`flex items-center mt-4 py-2 px-6 ${
                     pathname === '/'
-                      ? 'bg-gray-700 bg-opacity-25 text-gray-100'
-                      : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100'
+                      ? 'bg-gray-700 bg-opacity-25 text-yellow-200'
+                      : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-yellow-200'
                   }`}
                 >
                   <FaHome className="w-6 h-6" />
@@ -58,8 +59,8 @@ export default function Navbar({ children }: any) {
                 <a
                   className={`flex items-center mt-4 py-2 px-6 ${
                     pathname === '/table'
-                      ? 'bg-gray-700 bg-opacity-25 text-gray-100'
-                      : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100'
+                      ? 'bg-gray-700 bg-opacity-25 text-yellow-200'
+                      : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-yellow-200'
                   }`}
                 >
                   <FaTable className="w-6 h-6" />
@@ -82,17 +83,17 @@ export default function Navbar({ children }: any) {
                 </button>
 
                 {/* search input */}
-                <div className="relative mx-4 lg:mx-0">
+                {/* <div className="relative mx-4 lg:mx-0">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                     <FaSearch className="w-5 h-5 text-gray-500" />
                   </span>
 
                   <input
-                    className="w-32 pl-10 pr-4 rounded-md form-input sm:w-64 focus:border-indigo-500"
+                    className="w-32 pl-10 pr-4 rounded-md outline-none form-input sm:w-64 focus:ring-4 focus:ring-yellow-200"
                     type="text"
                     placeholder="Search"
                   />
-                </div>
+                </div> */}
               </div>
 
               <div className="flex items-center">
@@ -105,7 +106,7 @@ export default function Navbar({ children }: any) {
                   >
                     <img
                       className="object-cover w-full h-full"
-                      src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=296&amp;q=80"
+                      src="/me.png"
                       alt="Your avatar"
                     />
                   </button>
@@ -125,13 +126,10 @@ export default function Navbar({ children }: any) {
                     }`}
                   >
                     <Link href="/profile">
-                      <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-500 hover:text-white">
-                        Profile
+                      <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-300 hover:text-white">
+                        My Profile
                       </a>
                     </Link>
-                    <span className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-red-500 hover:text-white">
-                      Logout
-                    </span>
                   </div>
                 </div>
               </div>

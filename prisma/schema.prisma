@@ -1,13 +1,13 @@
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = "file:./sqlitee.db"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model Sensors {
+model Sensor {
   id        Int     @id @default(autoincrement())
   temp      Float
   alt       Float
@@ -16,5 +16,5 @@ model Sensors {
   humid     Float
   lux       Float
   flame     Int
-  createdAt DateTime @updatedAt
+  time      String
 }

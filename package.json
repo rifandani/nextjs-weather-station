@@ -6,8 +6,13 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
+    "prisma:init": "yarn prisma init",
     "prisma:migrate": "yarn prisma migrate --preview-feature",
-    "prisma:generate": "yarn prisma generate"
+    "prisma:migrate-reset": "yarn prisma migrate reset --preview-feature",
+    "prisma:deploy": "yarn prisma migrate deploy --preview-feature",
+    "prisma:introspect": "yarn prisma introspect",
+    "prisma:generate": "yarn prisma generate",
+    "prisma:studio": "yarn prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^2.14.0",

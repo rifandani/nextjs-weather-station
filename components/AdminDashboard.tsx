@@ -1,10 +1,4 @@
-import {
-  FaUserFriends,
-  FaShoppingCart,
-  FaShoppingBag,
-  FaMoneyBillWave,
-} from 'react-icons/fa';
-import { useRouter } from 'next/router';
+import { FaUserFriends, FaShoppingCart, FaShoppingBag } from 'react-icons/fa';
 import {
   Area,
   AreaChart,
@@ -18,71 +12,110 @@ import useSWR from 'swr';
 // files
 
 export default function AdminDashboard() {
-  const { push } = useRouter();
   const { data, error } = useSWR('/sensors', { refreshInterval: 10000 });
 
   return (
     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
       <div className="container px-6 py-8 mx-auto">
-        {/* dashboard title */}
-        <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
+        {/* home title */}
+        <h3 className="text-3xl font-medium text-gray-700">Home</h3>
 
         <div className="mt-4">
           <div className="flex flex-wrap -mx-6">
             {/* Total Users */}
-            <section className="w-full px-6 sm:w-1/2 xl:w-1/3">
-              <div className="flex items-center px-5 py-6 bg-white rounded-md shadow-sm">
-                <div className="p-3 bg-indigo-500 bg-opacity-75 rounded-full">
-                  <FaUserFriends className="w-8 h-8 text-white" />
+            <section className="w-full px-6">
+              <div className="flex flex-col bg-white border-l-4 border-yellow-500 rounded-md shadow-sm">
+                <div className="flex px-5 py-3 bg-gray-100 border-b border-gray-200 shadow-sm rounded-t-md">
+                  <p className="font-semibold text-yellow-500">
+                    Latar Belakang
+                  </p>
                 </div>
 
-                <div className="mx-5">
-                  <h4 className="text-2xl font-semibold text-gray-700">2</h4>
-                  <div className="text-gray-500">Total Users</div>
-                </div>
-              </div>
-            </section>
+                <div className="flex items-center p-6">
+                  <img src="/history.png" className="w-20 rounded-full" />
 
-            {/* Available Products */}
-            <section className="w-full px-6 mt-6 sm:w-1/2 xl:w-1/3 sm:mt-0">
-              <div className="flex items-center px-5 py-6 bg-white rounded-md shadow-sm">
-                <div className="p-3 bg-pink-500 bg-opacity-75 rounded-full">
-                  <FaShoppingBag className="w-8 h-8 text-white" />
-                </div>
-
-                <div className="mx-5">
-                  <h4 className="text-2xl font-semibold text-gray-700">2</h4>
-                  <div className="text-gray-500">Available Products</div>
-                </div>
-              </div>
-            </section>
-
-            {/* Weekly Orders */}
-            <section className="w-full px-6 mt-6 sm:w-1/2 xl:w-1/3 xl:mt-0">
-              <div className="flex items-center px-5 py-6 bg-white rounded-md shadow-sm">
-                <div className="p-3 bg-yellow-500 bg-opacity-75 rounded-full">
-                  <FaShoppingCart className="w-8 h-8 text-white" />
-                </div>
-
-                <div className="mx-5">
-                  <h4 className="text-2xl font-semibold text-gray-700">152</h4>
-                  <div className="text-gray-500">Weekly Orders</div>
+                  <p className="ml-6 text-gray-500">
+                    Cuaca merupakan sebuah aktifitas fenomena dalam waktu
+                    tertentu yang dapat dikonversi manjadi suata data yang
+                    sangat berguna untuk mengetahui klimatologis suatu tempat,
+                    sehingga dapat memberi informasi kondisi cuaca yang dapat
+                    dimanfaatkan sesuai kebutuhan perorangan maupun intansi.
+                    Intansi yang membutuhkan data cuaca antara lain:
+                    Pertanian/Perkebunan, Penerbangan, Pelayaran, Dinas
+                    Pekerjaan Umum, dan juga masyarakat umum yang memanfaatkan
+                    sesuai keperluan masing-masing. Badan Meteorologi
+                    Klimatologi dan Geofisika (BMKG) pada umumnya merupakan
+                    intansi pemerintahan yang ditugaskan untuk mengamati cuaca
+                    dan memberikan perkiraan dan serta peringatan dini (early
+                    warning) yang berhubungan dengan cuaca. Untuk mengamati
+                    cuaca mutlak diperlukan suatu instrumen dan ditempatkan
+                    dalam suatu lokasi tertentu yang representative mewakili
+                    kondisi lingkukan sekitar yang lebih dikenal dengan Taman
+                    Alat, Taman Alat secara umum memuat alat ukur parameter
+                    cuaca seperti : Curah hujan, Suhu udara, Kelembaban udara,
+                    Arah dan kecepatan angin, Sinar matahari dan Alat ukur
+                    tekanan udara. Secara keseluruhan alat-alat ukur tersebut
+                    disebut juga dengan “stasiun pengamatan” atau lebih dikenal
+                    dengan Stasiun Meteorologi.
+                  </p>
                 </div>
               </div>
             </section>
 
-            {/* Weekly Income */}
-            <section className="w-full px-6 mt-6 sm:w-1/2 xl:w-1/3">
-              <div className="flex items-center px-5 py-6 bg-white rounded-md shadow-sm">
-                <div className="p-3 bg-green-500 bg-opacity-75 rounded-full">
-                  <FaMoneyBillWave className="w-8 h-8 text-white" />
+            {/* Modul */}
+            <section className="w-full px-6 mt-6 sm:w-1/2">
+              <div className="flex flex-col bg-white border-l-4 border-yellow-500 rounded-md shadow-sm">
+                <div className="flex px-5 py-3 bg-gray-100 border-b border-gray-200 shadow-sm rounded-t-md">
+                  <p className="font-semibold text-yellow-500">Modul</p>
                 </div>
 
-                <div className="mx-5">
-                  <h4 className="text-2xl font-semibold text-gray-700">
-                    Rp 550.000
-                  </h4>
-                  <div className="text-gray-500">Weekly Income</div>
+                <div className="flex items-center p-6">
+                  <img src="/books.png" className="w-20 rounded-full" />
+
+                  <div className="ml-6">
+                    <p className="mb-3 text-gray-500">
+                      Untuk memudahkan para siswa dalam mempelajari media, maka
+                      developer menyediakan buku panduan yang dapat di download
+                      secara online. Panduan penggunaan modul ini dapat anda
+                      download melalui tombol berikut.
+                    </p>
+
+                    <button
+                      onClick={() => {}}
+                      className="px-4 py-2 text-white bg-yellow-500 border rounded-md hover:bg-yellow-600"
+                    >
+                      Download
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Labsheet */}
+            <section className="w-full px-6 mt-6 sm:w-1/2">
+              <div className="flex flex-col bg-white border-l-4 border-yellow-500 rounded-md shadow-sm">
+                <div className="flex px-5 py-3 bg-gray-100 border-b border-gray-200 shadow-sm rounded-t-md">
+                  <p className="font-semibold text-yellow-500">Labsheet</p>
+                </div>
+
+                <div className="flex items-center p-6">
+                  <img src="/book.png" className="w-20 rounded-full" />
+
+                  <div className="ml-6">
+                    <p className="mb-3 text-gray-500">
+                      Untuk memudahkan para siswa dalam mempelajari media, maka
+                      developer menyediakan modul jobsheet yang dapat di
+                      download secara online. Modul ini dapat anda download
+                      melalui tombol berikut.
+                    </p>
+
+                    <button
+                      onClick={() => {}}
+                      className="px-4 py-2 text-white bg-yellow-500 border rounded-md hover:bg-yellow-600"
+                    >
+                      Download
+                    </button>
+                  </div>
                 </div>
               </div>
             </section>
@@ -94,16 +127,17 @@ export default function AdminDashboard() {
         {/* users title */}
         <div className="flex items-center justify-between">
           <h3 className="text-3xl font-medium text-gray-700">Charts</h3>
-          <button
-            onClick={() => push('/admin/add/user', '/admin/add/user')}
+          {/* <button
+            onClick={() => {}}
             className="px-4 py-2 text-white bg-green-500 border rounded-md hover:bg-green-600"
           >
-            Add New User
-          </button>
+            Add New Data
+          </button> */}
         </div>
 
-        {/* temperature */}
+        {/* charts */}
         <div className="w-full mt-4">
+          {/* temp */}
           <section className="relative flex flex-col pt-2 pb-4 bg-white border-b-4 border-yellow-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-500">
               BMP280 Temperature (&#8451;)
@@ -119,7 +153,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -133,7 +167,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* altitude */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-green-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-green-500">
               BMP280 Altitude (meter)
             </p>
@@ -148,7 +182,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -162,7 +196,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* pressure */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-blue-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-blue-500">
               BMP280 Pressure (hPa)
             </p>
@@ -177,7 +211,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -191,7 +225,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* pressure */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-yellow-700 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-700">
               DHT11 Heat Index (&#8451;)
             </p>
@@ -206,7 +240,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -220,7 +254,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* humidity */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-yellow-300 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-300">
               DHT11 Kelembaban (%)
             </p>
@@ -235,7 +269,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -249,7 +283,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* illumination */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-green-300 rounded-md">
             <p className="w-full py-2 font-bold text-center text-green-300">
               BH1750 Illumination (lumen/m<sup>2</sup>)
             </p>
@@ -264,7 +298,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
@@ -278,7 +312,7 @@ export default function AdminDashboard() {
           </section>
 
           {/* infrared */}
-          <section className="relative flex flex-col py-2 mt-4 bg-white rounded-md">
+          <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-gray-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-gray-500">
               Infared (0/1)
             </p>
@@ -293,7 +327,7 @@ export default function AdminDashboard() {
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="createdAt" />
+                <XAxis dataKey="time" />
                 <YAxis />
                 <Tooltip />
                 <Area
