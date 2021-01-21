@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 
 const cors = initMiddleware(
   Cors({
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   }),
 );
 

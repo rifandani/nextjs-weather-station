@@ -8,6 +8,7 @@
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
     "module": "esnext",
+    // "module": "CommonJS", // buat node-ts seeding prisma
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
