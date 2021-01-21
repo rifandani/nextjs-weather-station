@@ -18,7 +18,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (req.method === 'GET') {
     try {
-      await prisma.$connect();
       const sensors = await prisma.sensor.findMany();
 
       // GET success +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -45,7 +44,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
       // save to database
-      await prisma.$connect();
       const newSensor = await prisma.sensor.create({
         data: {
           temp: parseFloat(Number(temp).toPrecision(4)),
@@ -80,7 +78,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const { loopNum } = req.body; // berapa kali mau looping nya => string
 
       // save to database
-      await prisma.$connect();
       for (let i = 0; i < Number(loopNum); i++) {
         await prisma.sensor.create({
           data: {
@@ -114,7 +111,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } else if (req.method === 'DELETE') {
     try {
       // delete all values in table
-      await prisma.$connect();
       const { count } = await prisma.sensor.deleteMany();
 
       // DELETE success +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
