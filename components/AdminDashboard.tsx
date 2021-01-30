@@ -6,12 +6,31 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import React from 'react';
+import React, { useEffect } from 'react';
 import useSWR from 'swr';
 // files
 
 export default function AdminDashboard() {
   const { data, error } = useSWR('/sensors', { refreshInterval: 10000 });
+
+  useEffect(() => {
+    initWidget(
+      'weatherwidget-io-js',
+      'https://weatherwidget.io/js/widget.min.js',
+    );
+  }, []);
+
+  const initWidget = (id: string, src: string) => {
+    let js,
+      fjs = document.getElementsByTagName('script')[0];
+
+    if (!document.getElementById(id)) {
+      js = document.createElement('script');
+      js.id = id;
+      (js as HTMLScriptElement).src = src;
+      fjs.parentNode?.insertBefore(js, fjs);
+    }
+  };
 
   return (
     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
@@ -337,6 +356,48 @@ export default function AdminDashboard() {
                 />
               </AreaChart>
             )}
+          </section>
+        </div>
+
+        <div className="mt-8"></div>
+
+        <h3 className="text-3xl font-medium text-gray-700">Widget</h3>
+
+        <div className="w-full mt-4">
+          <section className="px-4 pt-2 pb-4 mt-4 bg-white border-b-4 border-blue-500 rounded-md">
+            <p className="w-full py-4 font-bold text-center text-blue-500">
+              Weather Forecast
+            </p>
+
+            <a
+              className="weatherwidget-io"
+              href="https://forecast7.com/en/n7d80110d37/yogyakarta/"
+              data-label_1="YOGYAKARTA"
+              data-label_2="WEATHER"
+              data-font="Ubuntu"
+              data-icons="Climacons Animated"
+              data-theme="random_grey"
+            >
+              Weatherwidget
+            </a>
+
+            {/* <iframe
+              className="w-full h-full"
+              style={{
+                color: '#868686',
+                height: 300,
+                width: '100% !important',
+              }}
+              name="flipe"
+              id="44ff1924613af9e7bb4c8f45ff4b14ff"
+              src="https://www.theweather.com/getwid/44ff1924613af9e7bb4c8f45ff4b14ff"
+              frameBorder="0"
+            ></iframe> */}
+
+            <img
+              className="w-full mt-2"
+              src="https://www.theweather.com/wimages/fotofbdcbe83ea02b45b5869b63377b24a1c.png"
+            />
           </section>
         </div>
       </div>

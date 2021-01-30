@@ -1,11 +1,12 @@
 module.exports = {
-  // images: {
-  //   domains: [
-  //     'firebasestorage.googleapis.com',
-  //     'images.unsplash.com',
-  //     'placeimg.com',
-  //   ],
-  // },
+  images: {
+    domains: [
+      'firebasestorage.googleapis.com',
+      'images.unsplash.com',
+      'placeimg.com',
+      'theweather.com',
+    ],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
