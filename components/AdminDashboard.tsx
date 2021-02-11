@@ -338,8 +338,6 @@ export default function AdminDashboard() {
             )}
           </section>
         </div>
-
-        <div className="mt-8"></div>
       </div>
     </main>
   );

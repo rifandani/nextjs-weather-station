@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FaHome, FaBars, FaTable } from 'react-icons/fa';
-import { TiWeatherPartlySunny } from 'react-icons/ti';
+import { TiWeatherPartlySunny, TiWeatherCloudy } from 'react-icons/ti';
 // files
 
 export default function Navbar({ children }: any) {
@@ -66,6 +66,20 @@ export default function Navbar({ children }: any) {
                   <FaTable className="w-6 h-6" />
 
                   <span className="mx-3">Table</span>
+                </a>
+              </Link>
+
+              <Link href="/forecast">
+                <a
+                  className={`flex items-center mt-4 py-2 px-6 ${
+                    pathname === '/forecast'
+                      ? 'bg-gray-700 bg-opacity-25 text-yellow-200'
+                      : 'text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-yellow-200'
+                  }`}
+                >
+                  <TiWeatherCloudy className="w-6 h-6" />
+
+                  <span className="mx-3">Forecast</span>
                 </a>
               </Link>
             </nav>
