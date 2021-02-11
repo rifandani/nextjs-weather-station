@@ -380,24 +380,6 @@ export default function AdminDashboard() {
             >
               Weatherwidget
             </a>
-
-            {/* <iframe
-              className="w-full h-full"
-              style={{
-                color: '#868686',
-                height: 300,
-                width: '100% !important',
-              }}
-              name="flipe"
-              id="44ff1924613af9e7bb4c8f45ff4b14ff"
-              src="https://www.theweather.com/getwid/44ff1924613af9e7bb4c8f45ff4b14ff"
-              frameBorder="0"
-            ></iframe> */}
-
-            <img
-              className="w-full mt-2"
-              src="https://www.theweather.com/wimages/fotofbdcbe83ea02b45b5869b63377b24a1c.png"
-            />
           </section>
         </div>
       </div>

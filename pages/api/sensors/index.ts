@@ -5,7 +5,9 @@ import Cors from 'cors';
 import initMiddleware from '../../../middlewares/initMiddleware';
 import getRandomNumber from '../../../utils/getRandomNumber';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  log: ['info'],
+});
 
 const cors = initMiddleware(
   Cors({
