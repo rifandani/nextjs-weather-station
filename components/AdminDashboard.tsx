@@ -138,7 +138,7 @@ export default function AdminDashboard() {
           {/* temp */}
           <section className="relative flex flex-col pt-2 pb-4 bg-white border-b-4 border-yellow-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-500">
-              BMP280 Temperature (&#8451;)
+              BMP280 ~ Temperatur (&#8451;)
             </p>
 
             {error && 'Error fetching data'}
@@ -167,7 +167,7 @@ export default function AdminDashboard() {
           {/* altitude */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-green-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-green-500">
-              BMP280 Altitude (meter)
+              BMP280 ~ Altitude (meter)
             </p>
 
             {error && 'Error fetching data'}
@@ -196,7 +196,7 @@ export default function AdminDashboard() {
           {/* pressure */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-blue-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-blue-500">
-              BMP280 Pressure (hPa)
+              BMP280 ~ Tekanan (hPa)
             </p>
 
             {error && 'Error fetching data'}
@@ -225,7 +225,7 @@ export default function AdminDashboard() {
           {/* pressure */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-yellow-700 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-700">
-              DHT11 Heat Index (&#8451;)
+              DHT11 ~ Heat Index (&#8451;)
             </p>
 
             {error && 'Error fetching data'}
@@ -254,7 +254,7 @@ export default function AdminDashboard() {
           {/* humidity */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-yellow-300 rounded-md">
             <p className="w-full py-2 font-bold text-center text-yellow-300">
-              DHT11 Kelembaban (%)
+              DHT11 ~ Kelembaban (%)
             </p>
 
             {error && 'Error fetching data'}
@@ -283,7 +283,7 @@ export default function AdminDashboard() {
           {/* illumination */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-green-300 rounded-md">
             <p className="w-full py-2 font-bold text-center text-green-300">
-              BH1750 Illumination (lumen/m<sup>2</sup>)
+              BH1750 ~ Iluminasi (lumen/m<sup>2</sup>)
             </p>
 
             {error && 'Error fetching data'}
@@ -312,7 +312,7 @@ export default function AdminDashboard() {
           {/* infrared */}
           <section className="relative flex flex-col pt-2 pb-4 mt-4 bg-white border-b-4 border-gray-500 rounded-md">
             <p className="w-full py-2 font-bold text-center text-gray-500">
-              Infared (0/1)
+              FC-51 ~ Infared (0/1)
             </p>
 
             {error && 'Error fetching data'}

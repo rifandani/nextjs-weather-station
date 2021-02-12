@@ -10,6 +10,9 @@ export default function TableSensors() {
       <div className="-my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div className="min-w-full overflow-hidden sm:rounded-lg ">
           {error && 'Error fetching data'}
+
+          {!data && !error && 'Loading...'}
+
           {data && (
             <Grid
               data={data?.sensors}
